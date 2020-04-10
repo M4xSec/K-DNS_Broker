@@ -1,0 +1,41 @@
+#!/bin/bash
+#
+#
+# author : Kamaldeep Singh
+# Tested on Kali Linux / lxle-linux
+#Colors
+cyan='\e[0;36m'
+green='\e[0;32m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+blue='\e[1;34m'
+#Options
+path=`pwd` # Path
+#Check root exist
+[[ `id -u` -eq 0 ]] > /dev/null 2>&1 || { echo  $red "You must be root to run the script"; exit 1; }
+
+echo "  ██╗  ██╗     ██████╗ ███╗   ██╗███████╗        ██████╗ ██████╗  ██████╗ ██╗  ██╗███████╗██████╗ ";    
+echo "  ██║ ██╔╝     ██╔══██╗████╗  ██║██╔════╝        ██╔══██╗██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝██╔══██╗  ";  
+echo "  █████╔╝█████╗██║  ██║██╔██╗ ██║███████╗        ██████╔╝██████╔╝██║   ██║█████╔╝ █████╗  ██████╔╝  ";  
+echo "  ██╔═██╗╚════╝██║  ██║██║╚██╗██║╚════██║        ██╔══██╗██╔══██╗██║   ██║██╔═██╗ ██╔══╝  ██╔══██╗  ";  
+echo "  ██║  ██╗     ██████╔╝██║ ╚████║███████║███████╗██████╔╝██║  ██║╚██████╔╝██║  ██╗███████╗██║  ██║ ";   
+echo "  ╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝";
+
+mkdir /usr/share/K-DNS_Broker
+cp K-DNS_Broker /usr/share/K-DNS_Broker
+echo -e $blue "[ ✔ ]Done"
+echo "#!/bin/sh" >> /usr/bin/K-DNS_Broker
+echo "cd /usr/share/K-DNS_Broker" >> /usr/bin/K-DNS_Broker
+echo "exec python K-DNS_Broker \"\$@\"" >> /usr/bin/K-DNS_Broker
+cp $path/Dev/K-DNS_Broker.desktop /usr/share/applications/K-DNS_Broker.desktop
+cp $path/Dev/K-DNS_Broker.png /usr/share/icons/K-DNS_Broker.png
+cp K-DNS_Broker /usr/local/sbin/K-DNS_Broker
+chmod +x /usr/local/sbin/K-DNS_Broker
+chmod +x K-DNS_Broker
+echo -e $red "K-DNS_Broker Is Installed In Application (DNS Broker)"
+echo -e $green"╔────────────────────────────╗ "
+echo -e $blue "| R Terminal<(K-DNS_Broker)> |  "
+echo -e $green"╚────────────────────────────╝ "
+exit

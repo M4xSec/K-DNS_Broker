@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=K-DNS_Broker
+Encoding=UTF-8
+Exec=sh -c "Devploit;${SHELL:-bash}"
+Icon=K-DNS_Broker
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=01-info-gathering;01-04-network-scanners;02-vulnerability-analysis;
+X-Kali-Package=Kamaldeep
+Name[C]=K-DNS_Broker.desktop

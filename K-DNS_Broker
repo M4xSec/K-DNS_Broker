@@ -1,0 +1,159 @@
+#!/usr/bin/env python
+#
+#
+#
+#
+#                          Created By Kamaldeep Singh
+
+from urllib2 import *
+from platform import system
+import sys
+def clear():
+    if system() == 'Linux':
+        os.system("clear")
+    if system() == 'Windows':
+        os.system('cls')
+        os.system('color a')
+    else:
+        pass
+def slowprint(s):
+    for c in s + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(4. / 100)
+banner = '''
+
+//    _  __     _____  _   _  _____  ____            _                 ___                 \033[92m
+//   | |/ /    |  __ \| \ | |/ ____||  _ \          | |               / ..\   \033[94m
+//   | ' /_____| |  | |  \| | (___  | |_) |_ __ ___ | | _____ _ __  ( \  0/__
+//   |  <______| |  | | . ` |\___ \ |  _ <| '__/ _ \| |/ / _ \ '__|  \    \__)  ..... K-DNS_Broker - DNS DUMPER    \033[91m 
+//   | . \     | |__| | |\  |____) || |_) | | | (_) |   <  __/ |     /     \                               \033[92m 
+//   |_|\_\    |_____/|_| \_|_____/ |____/|_|  \___/|_|\_\___|_|    /""""""_\
+//                              ______                                                  \033[96m
+
+...............................................................................................................   \033[91m 
+            .--,
+           /  (
+          /    \                                    
+         /      \ 
+        /  0  0  \                      [.:: Version : 1.0 ::.]                                            \033[91m
+((()   |    ()    |   ()))
+\  ()  (  .____.  )  ()  /           [.:: Name : K-DNS_Broker ::.]                                                          \033[96m
+ |` \_/ \  `""`  / \_/ `|
+ |       `.'--'.`       |          [.:: Author : Kamaldeep Singh ::.]                            \033[92m
+                                                                                                                                                                                                                                        ''' 
+print banner
+def menu():
+   print'''
+\033[91m 1 \033[92m)\033[92m .DNS Lookup         \033[91m 5 \033[92m)\033[96m .....subnet Lookup      \033[91m 9 \033[92m)\033[96m .....HTTP Header
+
+\033[91m 2 \033[92m)\033[96m ..Who is LookUp     \033[91m 6 \033[92m)\033[92m ......Scanning Port     \033[91m 10\033[92m)\033[96m ....Host Locator
+
+\033[91m 3 \033[92m)\033[96m ...Reversing IP     \033[91m 7 \033[92m)\033[92m .......Extract Links    \033[91m 11\033[92m)\033[96m ...IP Locator
+
+\033[91m 4 \033[92m)\033[96m ....GeoIP Lookup    \033[91m 8 \033[92m)\033[96m ......Zone Transfering  \033[91m 12\033[92m)\033[92m ..[ About ] !!!
+
+\033[91m 0 \033[92m)\033[96m ..Exit/
+'''
+slowprint("\033[1;91m Welcome to my DNS Broker Script, following are the info gathering shorts that you can LookUp: " + "\n Let's Start K-DNS_Broker !")
+
+menu()
+def ext():
+    ex = raw_input ('\033[92mContinue/Exit->-> ')
+    if ex[0].upper() == 'E' :
+           print 'Exiting!!!'
+           exit()
+    else:
+           clear()
+           print banner
+           menu()
+           select()
+
+def  select():
+  try:
+    DNS = input("\033[92mKamaldeep \033[92m0/\033[91m13 -> ->  ")
+    if DNS == 2:
+      dz = raw_input('\033[91mKamaldeep IP Address : \033[91m')
+      whois = "http://api.hackertarget.com/whois/?q=" + dz
+      dev = urlopen(whois).read()
+      print (dev)
+      ext()
+    elif DNS == 3:
+      dz = raw_input('\033[92mKamaldeep IP Address : \033[92m')
+      revrse = "http://api.hackertarget.com/reverseiplookup/?q=" + dz
+      lookup = urlopen(revrse).read()
+      print (lookup)
+      ext()
+    elif DNS == 1:
+      dz = raw_input('\033[96mEntre Your Domain :\033[96m')
+      dns = "http://api.hackertarget.com/dnslookup/?q=" + dz
+      DNS = urlopen(dns).read()
+      print (DNS)
+      ext()
+    elif DNS == 4:
+      dz = raw_input('\033[91mKamaldeep IP Address : \033[91m')
+      geo = "http://api.hackertarget.com/geoip/?q=" + dz
+      ip = urlopen(geo).read()
+      print (ip)
+      ext()
+    elif DNS == 5:
+      dz = raw_input('\033[92mKamaldeep IP Address : \033[92m')
+      sub = "http://api.hackertarget.com/subnetcalc/?q=" + dz
+      net = urlopen(sub).read()
+      print (net)
+      ext()
+    elif DNS == 6:
+      dz = raw_input('\033[96mKamaldeep IP Address : \033[96m')
+      port = "http://api.hackertarget.com/nmap/?q=" + dz
+      scan = urlopen(port).read()
+      print (scan)
+      ext()
+    elif DNS == 7:
+      dz = raw_input('\033[91mEntre Your Domain :\033[91m')
+      get = "https://api.hackertarget.com/pagelinks/?q=" + dz
+      page = urlopen(get).read()
+      print(page)
+      ext()
+    elif DNS == 8:
+      dz = raw_input('\033[92mEntre Your Domain :\033[92m')
+      zon = "http://api.hackertarget.com/zonetransfer/?q=" + dz
+      tran = urlopen(zon).read()
+      print (tran)
+      ext()
+    elif DNS == 9:
+      dz = raw_input('\033[96mEntre Your Domain :\033[96m')
+      hea = "http://api.hackertarget.com/httpheaders/?q=" + dz
+      der =  urlopen(hea).read()
+      print (der)
+      ext()
+    elif DNS == 10:
+      dz = raw_input('\033[91mEntre Your Domain :\033[91m')
+      host = "http://api.hackertarget.com/hostsearch/?q=" + dz
+      finder = urlopen(host).read()
+      print (finder)
+      ext()
+    elif DNS == 11:
+      dz = raw_input('\033[91mEntre Your IP Address :\033[91m')
+      host = "http://ip-api.com/json/" + dz
+      kader = urlopen(host).read()
+      print (kader)
+      ext()
+    elif DNS == 12:
+      os.system("python update.py ")
+      ext()
+    elif DNS == 13:
+      slowprint("............... ")
+      slowprint("Name : K-DNS_Broker \033[92m")
+      slowprint("...............")
+      slowprint("Version : 1.0 \033[91m")
+      slowprint(".............")
+      slowprint("Author: Kamaldeep Singh \033[96m")
+      slowprint("......................")
+      slowprint(".............................................................. ")
+      ext() 
+    elif DNS == 0:
+      print "Exiting!!"
+      ext()
+  except(KeyboardInterrupt):
+    print "\nCtrl + C -> Exiting!!"
+select()
