@@ -3,7 +3,7 @@
 #
 #
 #
-#                          Created By Kamaldeep Singh
+#                          Created By Predator0x300
 
 from urllib2 import *
 from platform import system
@@ -40,7 +40,7 @@ banner = '''
 ((()   |    ()    |   ()))
 \  ()  (  .____.  )  ()  /           [.:: Name : K-DNS_Broker ::.]                                                          \033[96m
  |` \_/ \  `""`  / \_/ `|
- |       `.'--'.`       |          [.:: Author : Kamaldeep Singh ::.]                            \033[92m
+ |       `.'--'.`       |          [.:: Author : Predator0x300 ::.]                            \033[92m
                                                                                                                                                                                                                                         ''' 
 print banner
 def menu():
@@ -71,15 +71,15 @@ def ext():
 
 def  select():
   try:
-    DNS = input("\033[92mKamaldeep \033[92m0/\033[91m13 -> ->  ")
+    DNS = input("\033[92mpredator0x300 \033[92m0/\033[91m13 -> ->  ")
     if DNS == 2:
-      dz = raw_input('\033[91mKamaldeep IP Address : \033[91m')
+      dz = raw_input('\033[91mpredator0x300 IP Address : \033[91m')
       whois = "http://api.hackertarget.com/whois/?q=" + dz
       dev = urlopen(whois).read()
       print (dev)
       ext()
     elif DNS == 3:
-      dz = raw_input('\033[92mKamaldeep IP Address : \033[92m')
+      dz = raw_input('\033[92mpredator0x300 IP Address : \033[92m')
       revrse = "http://api.hackertarget.com/reverseiplookup/?q=" + dz
       lookup = urlopen(revrse).read()
       print (lookup)
@@ -91,19 +91,19 @@ def  select():
       print (DNS)
       ext()
     elif DNS == 4:
-      dz = raw_input('\033[91mKamaldeep IP Address : \033[91m')
+      dz = raw_input('\033[91mpredator0x300 IP Address : \033[91m')
       geo = "http://api.hackertarget.com/geoip/?q=" + dz
       ip = urlopen(geo).read()
       print (ip)
       ext()
     elif DNS == 5:
-      dz = raw_input('\033[92mKamaldeep IP Address : \033[92m')
+      dz = raw_input('\033[92mpredator0x300 IP Address : \033[92m')
       sub = "http://api.hackertarget.com/subnetcalc/?q=" + dz
       net = urlopen(sub).read()
       print (net)
       ext()
     elif DNS == 6:
-      dz = raw_input('\033[96mKamaldeep IP Address : \033[96m')
+      dz = raw_input('\033[96mpredator0x300 IP Address : \033[96m')
       port = "http://api.hackertarget.com/nmap/?q=" + dz
       scan = urlopen(port).read()
       print (scan)
@@ -147,7 +147,7 @@ def  select():
       slowprint("...............")
       slowprint("Version : 1.0 \033[91m")
       slowprint(".............")
-      slowprint("Author: Kamaldeep Singh \033[96m")
+      slowprint("Author: predator0x300 Singh \033[96m")
       slowprint("......................")
       slowprint(".............................................................. ")
       ext() 
